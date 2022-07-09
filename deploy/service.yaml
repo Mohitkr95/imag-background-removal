@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: u2net-http
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/luukio/u2net-bg-removal
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+
